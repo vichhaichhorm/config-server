@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: keycloak-admin-client
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/spring-mini-project
+          jwk-set-uri: http://localhost:8080/auth/realms/spring-mini-project/protocol/openid-connect/certs
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+keycloak:
+  realm: spring-mini-project
+  resource: spring
+  auth-server-url: http://localhost:8080/auth/
+  credentials:
+    username: 'admin'
+    password: 'admin'
+    client-id: 'spring'
+    secret: '644207cb-fc5f-4768-8bd2-35ac81f7a536'
+    provide: secret
+logging:
+  level:
+    org.springframework.web: debug
+
+
+
